@@ -31,6 +31,19 @@ describe('TodoApp.vue', () => {
         const wrapper = shallowMount(TodoApp)
         await wrapper.get('[data-test="checkbox"]').setValue(true)
         expect(wrapper.get('[data-test="tarea"]').classes()).toContain('completed')
-        })
+        }),
+
+
+    // Nueva prueba para validar que el título H1 es enviado  mediante props
+    
+    test('Se deberá mostrar el título enviado mediante props', async () => {
+      const wrapper = shallowMount(TodoApp, {
+        propsData: {
+          title: 'Mi primera tarea'
+        }
+      })
+      expect(wrapper.get('h1').text()).toBe('Mi primera tarea')
+    })
 
 })
+

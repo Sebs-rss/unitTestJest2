@@ -24,7 +24,8 @@ export default {
 <!-- Componente modificado v2-->
 <template>
   <div class="container">
-    <h1>Lista de tareas</h1>
+    // Modifico para que el texto venga del props
+    <h1>{{title}}</h1>
     <!-- <div>
       <li v-for="todo in todoList" :key="todo.id" data-test="tarea">
         {{ todo.description }}
@@ -58,6 +59,8 @@ export default {
       todoList: [{ id: 1, description: 'Description toDo 1', completed: false }],
     }
   },
+  // Modifico para que tome el props que enviará el componente padre App.vue  
+  props: { title: { type: String, required: true } },
   methods: {
     crearTarea() {
       this.todoList.push({
